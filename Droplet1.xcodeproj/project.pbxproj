@@ -13,6 +13,7 @@
 		6099FE8225CB8157008F8667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6099FE8125CB8157008F8667 /* Assets.xcassets */; };
 		6099FE8525CB8157008F8667 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6099FE8425CB8157008F8667 /* Preview Assets.xcassets */; };
 		6099FE8825CB8157008F8667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6099FE8625CB8157008F8667 /* LaunchScreen.storyboard */; };
+		6099FE9A25CB83EC008F8667 /* modelProjectDroplet.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 6099FE9925CB83EC008F8667 /* modelProjectDroplet.rcproject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		6099FE8425CB8157008F8667 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6099FE8725CB8157008F8667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6099FE8925CB8157008F8667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6099FE9925CB83EC008F8667 /* modelProjectDroplet.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; name = modelProjectDroplet.rcproject; path = ../../../../../.Trash/modelProjectDroplet.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		6099FE7A25CB8150008F8667 /* Droplet1 */ = {
 			isa = PBXGroup;
 			children = (
+				6099FE9025CB81E6008F8667 /* Models */,
 				6099FE7B25CB8150008F8667 /* AppDelegate.swift */,
 				6099FE7D25CB8150008F8667 /* ContentView.swift */,
 				6099FE7F25CB8150008F8667 /* Experience.rcproject */,
@@ -73,6 +76,14 @@
 				6099FE8425CB8157008F8667 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6099FE9025CB81E6008F8667 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6099FE9925CB83EC008F8667 /* modelProjectDroplet.rcproject */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6099FE7E25CB8150008F8667 /* ContentView.swift in Sources */,
+				6099FE9A25CB83EC008F8667 /* modelProjectDroplet.rcproject in Sources */,
 				6099FE7C25CB8150008F8667 /* AppDelegate.swift in Sources */,
 				6099FE8025CB8150008F8667 /* Experience.rcproject in Sources */,
 			);
