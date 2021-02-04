@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		60513F5125CCAF7200EC50ED /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60513F5025CCAF7200EC50ED /* ARViewContainer.swift */; };
+		60513F5825CCB66D00EC50ED /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 60513F5725CCB66D00EC50ED /* Podfile */; };
 		6099FE7C25CB8150008F8667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6099FE7B25CB8150008F8667 /* AppDelegate.swift */; };
 		6099FE7E25CB8150008F8667 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6099FE7D25CB8150008F8667 /* ContentView.swift */; };
 		6099FE8025CB8150008F8667 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 6099FE7F25CB8150008F8667 /* Experience.rcproject */; };
@@ -16,11 +17,11 @@
 		6099FE8825CB8157008F8667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6099FE8625CB8157008F8667 /* LaunchScreen.storyboard */; };
 		6099FEA425CBBF5E008F8667 /* ModelProjectDroplet.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 6099FEA325CBBF5E008F8667 /* ModelProjectDroplet.rcproject */; };
 		6099FEA825CBCD26008F8667 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6099FEA725CBCD26008F8667 /* .gitignore */; };
-		6099FEAB25CBCE38008F8667 /* .env in Resources */ = {isa = PBXBuildFile; fileRef = 6099FEAA25CBCE38008F8667 /* .env */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		60513F5025CCAF7200EC50ED /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARViewContainer.swift; path = Droplet1/ARViewContainer.swift; sourceTree = SOURCE_ROOT; };
+		60513F5725CCB66D00EC50ED /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		6099FE7825CB8150008F8667 /* Droplet1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Droplet1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6099FE7B25CB8150008F8667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6099FE7D25CB8150008F8667 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = Droplet1/ContentView.swift; sourceTree = SOURCE_ROOT; };
@@ -31,7 +32,6 @@
 		6099FE8925CB8157008F8667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6099FEA325CBBF5E008F8667 /* ModelProjectDroplet.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; name = ModelProjectDroplet.rcproject; path = ../../../../../../.Trash/ModelProjectDroplet.rcproject; sourceTree = "<group>"; };
 		6099FEA725CBCD26008F8667 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6099FEAA25CBCE38008F8667 /* .env */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +71,10 @@
 				6099FE7F25CB8150008F8667 /* Experience.rcproject */,
 				6099FE8125CB8157008F8667 /* Assets.xcassets */,
 				6099FEA725CBCD26008F8667 /* .gitignore */,
-				6099FEAA25CBCE38008F8667 /* .env */,
 				6099FE8625CB8157008F8667 /* LaunchScreen.storyboard */,
 				6099FE8925CB8157008F8667 /* Info.plist */,
 				6099FE8325CB8157008F8667 /* Preview Content */,
+				60513F5725CCB66D00EC50ED /* Podfile */,
 			);
 			path = Droplet1;
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6099FEAB25CBCE38008F8667 /* .env in Resources */,
+				60513F5825CCB66D00EC50ED /* Podfile in Resources */,
 				6099FEA825CBCD26008F8667 /* .gitignore in Resources */,
 				6099FE8825CB8157008F8667 /* LaunchScreen.storyboard in Resources */,
 				6099FE8525CB8157008F8667 /* Preview Assets.xcassets in Resources */,
