@@ -26,18 +26,19 @@ struct ARViewContainer: UIViewRepresentable {
         
         // Add the box anchor to the scene
         arView.scene.addAnchor(dropletAnchor)
-        
+        dropletAnchor.actions.dropletTapped.onAction = handleTapOnEntity(_:)
+
+        print("scene created")
         return arView
         
     }
     
     func updateUIView(_ uiView: ARView, context: Context){
-//        if uiView.notifications.dropletTapped.post() {
     }
     
-//    arView.scene.notifications.dropletTapped.post() = isTapped()
-//    
-//    func isTapped() {}
+    func handleTapOnEntity(_: Entity?) {
+        print("What up?")
+    }
 
 }
 
