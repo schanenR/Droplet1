@@ -26,7 +26,7 @@ struct MapNavOverlay: View {
                     .opacity(0.8)
             }
             Button(action: {
-                viewRouter.currentPage = .page1
+                viewRouter.currentPage = .page4
             }) {
                 Image(systemName: "square.and.pencil")
                     .foregroundColor(.green)

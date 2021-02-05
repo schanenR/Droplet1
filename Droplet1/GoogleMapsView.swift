@@ -13,6 +13,8 @@ import CoreLocation
 struct GoogleMapsView: UIViewRepresentable {
     
     @ObservedObject var locationManager = LocationManager()
+    
+    @ObservedObject static var userMessage: Message = Message()
     @EnvironmentObject var viewRouter: ViewRouter
 
     private let zoom: Float = 15.5
@@ -65,7 +67,7 @@ struct GoogleMapsView: UIViewRepresentable {
                 
                 let marker = GMSMarker()
                 marker.position = location
-                marker.snippet = data.note
+                marker.userData = data.note
 //                marker.icon = GMSMarker.markerImage(with: .green)
                 marker.icon = UIImage(named: "pngdropletsmall")
                 marker.map = mapView
@@ -80,7 +82,9 @@ struct GoogleMapsView: UIViewRepresentable {
     
     class Delegate: NSObject, GMSMapViewDelegate {
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-    
+            
+            userMessage.message = marker.userData as? String
+            
             print("Did tap marker")
             return true
             
