@@ -33,7 +33,6 @@ struct ContentView : View {
             case .page3:
                 ARViewContainer().edgesIgnoringSafeArea(.all)
                     .transition(.scale)
-                    .transition(.scale)
             }
         }
 }

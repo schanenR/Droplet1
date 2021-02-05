@@ -49,7 +49,7 @@ struct GoogleMapsView: UIViewRepresentable {
             
             let markerLocation = CLLocation(latitude: data.latitude, longitude: data.longitude)
 
-            if currentPosition.distance(from: markerLocation) > 25 {
+            if currentPosition.distance(from: markerLocation) > 50 {
                 
 //                print("location: \(location)")
 //                print("distance from marker: \(currentPosition.distance(from: markerLocation))")
@@ -66,7 +66,8 @@ struct GoogleMapsView: UIViewRepresentable {
                 let marker = GMSMarker()
                 marker.position = location
                 marker.snippet = data.note
-                marker.icon = GMSMarker.markerImage(with: .green)
+//                marker.icon = GMSMarker.markerImage(with: .green)
+                marker.icon = UIImage(named: "pngdropletsmall")
                 marker.map = mapView
             }
         }
