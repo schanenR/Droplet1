@@ -15,7 +15,6 @@
 		6099FE8225CB8157008F8667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6099FE8125CB8157008F8667 /* Assets.xcassets */; };
 		6099FE8525CB8157008F8667 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6099FE8425CB8157008F8667 /* Preview Assets.xcassets */; };
 		6099FE8825CB8157008F8667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6099FE8625CB8157008F8667 /* LaunchScreen.storyboard */; };
-		6099FEA825CBCD26008F8667 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6099FEA725CBCD26008F8667 /* .gitignore */; };
 		609A15D225CCC70800943FBE /* .env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A15D125CCC70800943FBE /* .env.swift */; };
 		609A15D525CCE1DF00943FBE /* GoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A15D425CCE1DF00943FBE /* GoogleMapsView.swift */; };
 		609A15D825CCE26F00943FBE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A15D725CCE26F00943FBE /* LocationManager.swift */; };
@@ -41,7 +40,6 @@
 		6099FE8425CB8157008F8667 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6099FE8725CB8157008F8667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6099FE8925CB8157008F8667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6099FEA725CBCD26008F8667 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		609A15D125CCC70800943FBE /* .env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = .env.swift; sourceTree = "<group>"; };
 		609A15D425CCE1DF00943FBE /* GoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsView.swift; sourceTree = "<group>"; };
 		609A15D725CCE26F00943FBE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -107,13 +105,12 @@
 				609A15D425CCE1DF00943FBE /* GoogleMapsView.swift */,
 				609A15E225CCE59F00943FBE /* MapNavOverlay.swift */,
 				609A160425CD1F4400943FBE /* HomeNavOverlay.swift */,
+				609A15E625CD075000943FBE /* ViewRouter.swift */,
 				609A15D725CCE26F00943FBE /* LocationManager.swift */,
 				609A15DB25CCE2EC00943FBE /* Droplet.swift */,
-				609A15E625CD075000943FBE /* ViewRouter.swift */,
 				609A15FA25CD13FF00943FBE /* Helper.swift */,
 				6099FE7F25CB8150008F8667 /* Experience.rcproject */,
 				6099FE8125CB8157008F8667 /* Assets.xcassets */,
-				6099FEA725CBCD26008F8667 /* .gitignore */,
 				6099FE8625CB8157008F8667 /* LaunchScreen.storyboard */,
 				6099FE8925CB8157008F8667 /* Info.plist */,
 				6099FE8325CB8157008F8667 /* Preview Content */,
@@ -206,7 +203,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				60513F5825CCB66D00EC50ED /* Podfile in Resources */,
-				6099FEA825CBCD26008F8667 /* .gitignore in Resources */,
 				6099FE8825CB8157008F8667 /* LaunchScreen.storyboard in Resources */,
 				6099FE8525CB8157008F8667 /* Preview Assets.xcassets in Resources */,
 				6099FE8225CB8157008F8667 /* Assets.xcassets in Resources */,

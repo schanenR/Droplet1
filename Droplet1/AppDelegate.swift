@@ -7,18 +7,21 @@
 
 import UIKit
 import SwiftUI
+import GoogleMaps
 
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    @StateObject var viewRouter = ViewRouter()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        GMSServices.provideAPIKey(API_KEY)
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = ContentView().environmentObject(viewRouter)
 
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)

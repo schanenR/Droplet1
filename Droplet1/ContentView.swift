@@ -10,9 +10,32 @@ import RealityKit
 import ARKit
 
 struct ContentView : View {
-    var body: some View {
-        ARViewContainer().edgesIgnoringSafeArea(.all)
-    }
+
+        @EnvironmentObject var viewRouter: ViewRouter
+        
+        var body: some View {
+            switch viewRouter.currentPage {
+            case .page1:
+                HomeView()
+                    .overlay(HomeNavOverlay(), alignment: .bottom)
+            case .page2:
+                HStack {
+                    GoogleMapsView()
+                        .edgesIgnoringSafeArea(.top)
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity,
+                               minHeight: 0,
+                               maxHeight: .infinity,
+                               alignment: .topLeading)
+                        .overlay(MapNavOverlay(), alignment: .bottom)
+                        .edgesIgnoringSafeArea(.all)
+                }
+            case .page3:
+                ARViewContainer().edgesIgnoringSafeArea(.all)
+                    .transition(.scale)
+                    .transition(.scale)
+            }
+        }
 }
 
 #if DEBUG
@@ -22,3 +45,4 @@ struct ContentView_Previews : PreviewProvider {
     }
 }
 #endif
+
