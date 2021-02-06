@@ -21,7 +21,8 @@ let testData = [
     Droplet(note: "Hi Trav, I stopped by to say hi but nobody was home. Miss you. : )", latitude: 47.05593478624946, longitude: -122.88456905343476),
     
     Droplet(note: "Please be red!", latitude: 47.06195938506906, longitude: -122.88471856024981),
-    
+    Droplet(note: "Thank you so much for the LOX bagel, : D Loving my ethiopian take-out diet but I never say no to lox. Yum!", latitude: 47.671421767307756, longitude: -122.30893498408551),
+    Droplet(note: "Thank you so much for the LOX bagel, : D Loving my ethiopian take-out diet but I never say no to lox. Yum!", latitude: 47.67061960500426, longitude: -122.30960520102539),
 ]
 
 #endif

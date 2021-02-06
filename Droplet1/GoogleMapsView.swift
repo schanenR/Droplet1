@@ -10,12 +10,15 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
+
 struct GoogleMapsView: UIViewRepresentable {
+    
+
     
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject static var userMessage: Message = Message()
 //    @ObservedObject static var viewHelper: RouterHelper = RouterHelper()
-//    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
 
     private let zoom: Float = 15.5
     var dropletArray: [Droplet] = testData
@@ -81,19 +84,21 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     class Delegate: NSObject, GMSMapViewDelegate {
-        
 
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
             
             userMessage.message = marker.userData as? String
-//            viewHelper.routeBool = true
-//            viewHelper.changeView()
-//            viewRouter.currentPage = .page4
-            
+
+            viewRouter.currentPage = .page4
+            print(viewRouter)
             print("Did tap marker")
             return true
         }
     }
+    
+    
+    //            viewHelper.routeBool = true
+    //            viewHelper.changeView()
     
 //    func changeView() {
 //        viewRouter.currentPage = .page4
