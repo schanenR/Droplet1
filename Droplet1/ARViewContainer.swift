@@ -34,6 +34,7 @@ struct ARViewContainer: UIViewRepresentable {
     }
     
     func handleTapOnEntity(_: Entity?) {
+        viewRouter.currentPage = .page4
         print("What up?")
     }
 
