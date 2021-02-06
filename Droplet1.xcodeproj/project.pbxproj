@@ -28,6 +28,7 @@
 		60F7343425CDFFAF00C19F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343325CDFFAF00C19F75 /* Message.swift */; };
 		60F7343825CE076C00C19F75 /* MessageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343725CE076C00C19F75 /* MessageFormView.swift */; };
 		60F7343F25CE390500C19F75 /* RouterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343E25CE390400C19F75 /* RouterHelper.swift */; };
+		60F7345B25CF363A00C19F75 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7345A25CF363A00C19F75 /* MessageView.swift */; };
 		EADBF4AF184A9074C0FA6BA5 /* Pods_Droplet1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8274FF084DACC73565408E78 /* Pods_Droplet1.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		60F7343325CDFFAF00C19F75 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		60F7343725CE076C00C19F75 /* MessageFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFormView.swift; sourceTree = "<group>"; };
 		60F7343E25CE390400C19F75 /* RouterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterHelper.swift; sourceTree = "<group>"; };
+		60F7345A25CF363A00C19F75 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		8274FF084DACC73565408E78 /* Pods_Droplet1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Droplet1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC2E410D68BB6C33C9FCBC7 /* Pods-Droplet1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Droplet1.release.xcconfig"; path = "Target Support Files/Pods-Droplet1/Pods-Droplet1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				60513F5025CCAF7200EC50ED /* ARViewContainer.swift */,
 				609A15D425CCE1DF00943FBE /* GoogleMapsView.swift */,
 				60F7343725CE076C00C19F75 /* MessageFormView.swift */,
+				60F7345A25CF363A00C19F75 /* MessageView.swift */,
 				609A15E225CCE59F00943FBE /* MapNavOverlay.swift */,
 				609A160425CD1F4400943FBE /* HomeNavOverlay.swift */,
 				60F7343E25CE390400C19F75 /* RouterHelper.swift */,
@@ -277,6 +280,7 @@
 				6099FE7E25CB8150008F8667 /* ContentView.swift in Sources */,
 				609A15DC25CCE2EC00943FBE /* Droplet.swift in Sources */,
 				6099FE7C25CB8150008F8667 /* AppDelegate.swift in Sources */,
+				60F7345B25CF363A00C19F75 /* MessageView.swift in Sources */,
 				609A15F825CD12F500943FBE /* ThreeDDroplet.rcproject in Sources */,
 				609A15E725CD075000943FBE /* ViewRouter.swift in Sources */,
 				609A15D825CCE26F00943FBE /* LocationManager.swift in Sources */,

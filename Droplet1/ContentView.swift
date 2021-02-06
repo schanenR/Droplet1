@@ -34,7 +34,7 @@ struct ContentView : View {
                 ARViewContainer().edgesIgnoringSafeArea(.all)
                     .transition(.scale)
             case .page4:
-                MessageFormView()
+                MessageView()
             }
            
         }
