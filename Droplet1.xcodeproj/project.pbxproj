@@ -29,13 +29,14 @@
 		60F7343825CE076C00C19F75 /* MessageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343725CE076C00C19F75 /* MessageFormView.swift */; };
 		60F7343F25CE390500C19F75 /* RouterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343E25CE390400C19F75 /* RouterHelper.swift */; };
 		60F7345B25CF363A00C19F75 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7345A25CF363A00C19F75 /* MessageView.swift */; };
+		60F7346A25D0989B00C19F75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60F7346925D0989B00C19F75 /* GoogleService-Info.plist */; };
 		EADBF4AF184A9074C0FA6BA5 /* Pods_Droplet1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8274FF084DACC73565408E78 /* Pods_Droplet1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3096C8677656A165D1A1126F /* Pods-Droplet1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Droplet1.debug.xcconfig"; path = "Target Support Files/Pods-Droplet1/Pods-Droplet1.debug.xcconfig"; sourceTree = "<group>"; };
 		60513F5025CCAF7200EC50ED /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARViewContainer.swift; path = Droplet1/ARViewContainer.swift; sourceTree = SOURCE_ROOT; };
-		60513F5725CCB66D00EC50ED /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		60513F5725CCB66D00EC50ED /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6099FE7825CB8150008F8667 /* Droplet1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Droplet1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6099FE7B25CB8150008F8667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6099FE7D25CB8150008F8667 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = Droplet1/ContentView.swift; sourceTree = SOURCE_ROOT; };
@@ -58,6 +59,7 @@
 		60F7343725CE076C00C19F75 /* MessageFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFormView.swift; sourceTree = "<group>"; };
 		60F7343E25CE390400C19F75 /* RouterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterHelper.swift; sourceTree = "<group>"; };
 		60F7345A25CF363A00C19F75 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		60F7346925D0989B00C19F75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8274FF084DACC73565408E78 /* Pods_Droplet1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Droplet1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC2E410D68BB6C33C9FCBC7 /* Pods-Droplet1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Droplet1.release.xcconfig"; path = "Target Support Files/Pods-Droplet1/Pods-Droplet1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 		6099FE7A25CB8150008F8667 /* Droplet1 */ = {
 			isa = PBXGroup;
 			children = (
+				60F7346925D0989B00C19F75 /* GoogleService-Info.plist */,
 				609A15DE25CCE3ED00943FBE /* Model */,
 				6099FE7B25CB8150008F8667 /* AppDelegate.swift */,
 				6099FE7D25CB8150008F8667 /* ContentView.swift */,
@@ -167,6 +170,7 @@
 				6099FE7525CB8150008F8667 /* Frameworks */,
 				6099FE7625CB8150008F8667 /* Resources */,
 				1737B5FECCE7585EDC7FEBE1 /* [CP] Copy Pods Resources */,
+				F6BF48B890E10DDE8922191E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +220,7 @@
 			files = (
 				60513F5825CCB66D00EC50ED /* Podfile in Resources */,
 				6099FE8825CB8157008F8667 /* LaunchScreen.storyboard in Resources */,
+				60F7346A25D0989B00C19F75 /* GoogleService-Info.plist in Resources */,
 				6099FE8525CB8157008F8667 /* Preview Assets.xcassets in Resources */,
 				6099FE8225CB8157008F8667 /* Assets.xcassets in Resources */,
 			);
@@ -261,6 +266,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6BF48B890E10DDE8922191E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Droplet1/Pods-Droplet1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Droplet1/Pods-Droplet1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Droplet1/Pods-Droplet1-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

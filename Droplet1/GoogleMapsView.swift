@@ -12,12 +12,12 @@ import CoreLocation
 
 
 struct GoogleMapsView: UIViewRepresentable {
-    
+    //    @ObservedObject static var viewHelper: RouterHelper = RouterHelper()
+
 
     
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject static var userMessage: Message = Message()
-//    @ObservedObject static var viewHelper: RouterHelper = RouterHelper()
     @EnvironmentObject var viewRouter: ViewRouter
 
     private let zoom: Float = 15.5
@@ -88,9 +88,9 @@ struct GoogleMapsView: UIViewRepresentable {
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
             
             userMessage.message = marker.userData as? String
-
-            viewRouter.currentPage = .page4
-            print(viewRouter)
+//
+//            viewRouter.currentPage = .page4
+//            print(viewRouter)
             print("Did tap marker")
             return true
         }
