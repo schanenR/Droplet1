@@ -37,6 +37,7 @@ struct ContentView : View {
                 MessageView()
             case .page5:
                 MessageFormView()
+                    .ignoresSafeArea(.keyboard)
             }
            
         }
