@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import GoogleMaps
+import Firebase
 
 
 @main
@@ -19,9 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        GMSServices.provideAPIKey(API_KEY)
+        GMSServices.provideAPIKey(MAP_API_KEY)
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView().environmentObject(viewRouter)
+        
+        FirebaseApp.configure()
 
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)

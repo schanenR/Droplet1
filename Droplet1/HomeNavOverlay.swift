@@ -15,7 +15,7 @@ struct HomeNavOverlay: View {
     var body: some View {
         HStack {
             Button(action: {
-                viewRouter.currentPage = .page1
+                viewRouter.currentPage = .page5
             }) {
                 Image(systemName: "pencil.circle")
                     .foregroundColor(.white)

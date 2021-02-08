@@ -35,6 +35,8 @@ struct ContentView : View {
                     .transition(.scale)
             case .page4:
                 MessageView()
+            case .page5:
+                MessageFormView()
             }
            
         }

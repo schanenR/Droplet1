@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 
 struct MessageFormView: View {
     
-    @State private var text = ""
+    @State private var note = ""
+    @EnvironmentObject var viewRouter: ViewRouter
+    @ObservedObject var locationManager = LocationManager()
+
+
 
         var body: some View {
             ZStack {
@@ -19,11 +25,53 @@ struct MessageFormView: View {
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.top)
                 VStack {
-                    TextField("Type message here...", text: $text)
+                    TextField("Type message here...", text: $note)
                       .padding(10)
-                        .frame( width: 300, height: 200)
-                      .font(Font.system(size: 20, weight: .medium, design: .serif))
-                      .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 1))
+                        .frame( width: 350, height: 600)
+                      .font(.largeTitle)
+                    HStack {
+                        Button(action: {
+                            let dropletData = [
+                                "note": self.note,
+                                "latitude": locationManager.latitude,
+                                "longitude": locationManager.longitude
+                            ] as [String : Any]
+                            
+                            let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")
+                            
+                            print("Setting data")
+                            docRef.setData(dropletData) { (error) in
+                                if let error = error {
+                                    
+                                } else {
+                                    print("data uploaded successfully")
+                                    self.note = ""
+                                    viewRouter.currentPage = .page2
+
+                                }
+                                
+                                
+                            }
+                            
+                        }) {
+                            Image(systemName: "checkmark.circle")
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                                .padding(20)
+                                .padding(.bottom, 30)
+                                .opacity(0.8)
+                        }
+                        Button(action: {
+                            viewRouter.currentPage = .page1
+                        }) {
+                            Image(systemName: "x.circle")
+                                .foregroundColor(.white)
+                                .font(.largeTitle)
+                                .padding(20)
+                                .padding(.bottom, 30)
+                                .opacity(0.8)
+                        }
+                    }
                 }
             }
         }
@@ -34,3 +82,4 @@ struct MessageFormView_Previews: PreviewProvider {
         MessageFormView()
     }
 }
+
