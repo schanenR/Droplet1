@@ -95,9 +95,15 @@ struct GoogleMapsView: UIViewRepresentable {
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
             
             userMessage.message = marker.userData as? String
-            ViewRouter.shared.currentPage = .page3
-//            print(viewRouter)
             print("Did tap marker")
+            
+            if userMessage.message != nil {
+                print("There is a message")
+                ViewRouter.shared.currentPage = .page3
+            } else  {
+                print("You are too far from the droplet!")
+            }
+            
             return true
         }
     }
