@@ -95,7 +95,7 @@ struct GoogleMapsView: UIViewRepresentable {
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
             
             userMessage.message = marker.userData as? String
-            ViewRouter.shared.currentPage = .page4
+            ViewRouter.shared.currentPage = .page3
 //            print(viewRouter)
             print("Did tap marker")
             return true
