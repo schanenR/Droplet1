@@ -9,14 +9,11 @@
 import SwiftUI
 
 struct MapNavOverlay: View {
-    
-    @EnvironmentObject var viewRouter: ViewRouter
 
-    
     var body: some View {
         HStack {
             Button(action: {
-                viewRouter.currentPage = .page3
+                ViewRouter.shared.currentPage = .page3
             }) {
                 Image(systemName: "drop")
                     .foregroundColor(.green)
@@ -26,7 +23,7 @@ struct MapNavOverlay: View {
                     .opacity(0.8)
             }
             Button(action: {
-                viewRouter.currentPage = .page4
+                ViewRouter.shared.currentPage = .page4
             }) {
                 Image(systemName: "square.and.pencil")
                     .foregroundColor(.green)
@@ -36,7 +33,7 @@ struct MapNavOverlay: View {
                     .opacity(0.8)
             }
             Button(action: {
-                viewRouter.currentPage = .page1
+                ViewRouter.shared.currentPage = .page1
             }) {
                 Image(systemName: "house")
                     .foregroundColor(.green)

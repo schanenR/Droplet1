@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct HomeNavOverlay: View {
-    
-    @EnvironmentObject var viewRouter: ViewRouter
 
-    
     var body: some View {
         HStack {
             Button(action: {
-                viewRouter.currentPage = .page5
+                ViewRouter.shared.currentPage = .page5
             }) {
                 Image(systemName: "pencil.circle")
                     .foregroundColor(.white)
@@ -25,7 +22,7 @@ struct HomeNavOverlay: View {
                     .opacity(0.8)
             }
             Button(action: {
-                viewRouter.currentPage = .page2
+                ViewRouter.shared.currentPage = .page2
             }) {
                 Image(systemName: "mappin.circle")
                     .foregroundColor(.white)
@@ -35,7 +32,7 @@ struct HomeNavOverlay: View {
                     .opacity(0.8)
             }
             Button(action: {
-                viewRouter.currentPage = .page1
+                ViewRouter.shared.currentPage = .page1
             }) {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(.white)

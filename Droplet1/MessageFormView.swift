@@ -13,7 +13,6 @@ import FirebaseFirestore
 struct MessageFormView: View {
     
     @State private var note = ""
-    @EnvironmentObject var viewRouter: ViewRouter
     @ObservedObject var locationManager = LocationManager()
 
 
@@ -46,8 +45,7 @@ struct MessageFormView: View {
                                 } else {
                                     print("data uploaded successfully")
                                     self.note = ""
-                                    viewRouter.currentPage = .page2
-
+                                    ViewRouter.shared.currentPage = .page2
                                 }
                                 
                                 
@@ -62,7 +60,7 @@ struct MessageFormView: View {
                                 .opacity(0.8)
                         }
                         Button(action: {
-                            viewRouter.currentPage = .page1
+                            ViewRouter.shared.currentPage = .page1
                         }) {
                             Image(systemName: "x.circle")
                                 .foregroundColor(.white)

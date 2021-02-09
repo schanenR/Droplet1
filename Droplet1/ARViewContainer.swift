@@ -10,9 +10,7 @@ import RealityKit
 import ARKit
 
 struct ARViewContainer: UIViewRepresentable {
-    
-    @EnvironmentObject var viewRouter: ViewRouter
-    
+
     func makeUIView(context: Context) -> ARView {
         
         let arView = ARView(frame: .zero)
@@ -34,7 +32,7 @@ struct ARViewContainer: UIViewRepresentable {
     }
     
     func handleTapOnEntity(_: Entity?) {
-        viewRouter.currentPage = .page4
+        ViewRouter.shared.currentPage = .page4
         print("What up?")
     }
 
