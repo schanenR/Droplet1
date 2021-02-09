@@ -17,7 +17,7 @@ struct MessageView: View {
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.top)
-            VStack{
+            VStack {
                 Text(GoogleMapsView.userMessage.message!)
                     .frame(width: 325)
                     .foregroundColor(Color.white)

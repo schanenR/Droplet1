@@ -18,11 +18,11 @@ struct GoogleMapsView: UIViewRepresentable {
     
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject static var userMessage: Message = Message()
-    @EnvironmentObject var viewRouter: ViewRouter
 
     private let zoom: Float = 15.5
     var dropletArray: [Droplet] = testData
-    let newDelegate = Delegate()
+    var newDelegate: Delegate?
+    
 
     var mapView: GMSMapView!
     
@@ -30,11 +30,12 @@ struct GoogleMapsView: UIViewRepresentable {
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.latitude, longitude: locationManager.longitude, zoom: zoom)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
-        mapView.delegate = newDelegate
-
+        newDelegate = Delegate(view: self)
     }
     
     func makeUIView(context: Self.Context) -> GMSMapView {
+        print("DEBUG: NEW UIVIEW?")
+        mapView.delegate = newDelegate
         return mapView
     }
     
@@ -84,12 +85,17 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     class Delegate: NSObject, GMSMapViewDelegate {
+        
+        let myView: GoogleMapsView
+        
+        init(view: GoogleMapsView) {
+            myView = view
+        }
 
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
             
             userMessage.message = marker.userData as? String
-//
-//            viewRouter.currentPage = .page4
+            ViewRouter.shared.currentPage = .page4
 //            print(viewRouter)
             print("Did tap marker")
             return true
