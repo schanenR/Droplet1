@@ -18,9 +18,11 @@ struct GoogleMapsView: UIViewRepresentable {
     
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject static var userMessage: Message = Message()
-
+    @ObservedObject var dropletModel = GetDropletData()
+    
+    
     private let zoom: Float = 15.5
-    var dropletArray: [Droplet] = testData
+//    var dropletArray: [Droplet] = testData
     var newDelegate: Delegate?
     
 
@@ -31,6 +33,7 @@ struct GoogleMapsView: UIViewRepresentable {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
         newDelegate = Delegate(view: self)
+        dropletModel.fetchData()
     }
     
     func makeUIView(context: Self.Context) -> GMSMapView {
@@ -47,7 +50,7 @@ struct GoogleMapsView: UIViewRepresentable {
 
         mapView.clear()
 
-        for data in dropletArray {
+        for data in dropletModel.droplets {
             
             let location = CLLocationCoordinate2D(latitude: data.latitude, longitude: data.longitude)
 
@@ -107,15 +110,6 @@ struct GoogleMapsView: UIViewRepresentable {
             return true
         }
     }
-    
-    
-    //            viewHelper.routeBool = true
-    //            viewHelper.changeView()
-    
-//    func changeView() {
-//        viewRouter.currentPage = .page4
-//    }
-    
 }
 
 struct GoogleMapsView_Previews: PreviewProvider {
