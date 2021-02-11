@@ -9,4 +9,5 @@ import SwiftUI
 
 class Message: ObservableObject {
     @Published var message: String?
+    @Published var date: Date?
 }
