@@ -17,6 +17,7 @@ struct MessageFormView: View {
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject var note = TextEditorManager()
     @State private var showingAlert = false
+    @State private var defaultAlert = false
 
     init() {
             UITextView.appearance().backgroundColor = .clear
@@ -61,13 +62,14 @@ struct MessageFormView: View {
                     })
                 HStack {
                     Button(action: {
-                        if note.text == "" {
+                        if note.text == "" || note.text == "Type message here..." {
                             showingAlert = true
                         } else {
                             let dropletData = [
                                 "note": note.text,
                                 "latitude": locationManager.latitude,
-                                "longitude": locationManager.longitude
+                                "longitude": locationManager.longitude,
+                                "date": Date()
                             ] as [String : Any]
                             
                             let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")
@@ -86,7 +88,7 @@ struct MessageFormView: View {
                     }) {
                         Image(systemName: "checkmark.circle")
                             .foregroundColor(.white)
-                            .font(.largeTitle)
+                            .font(.system(size: 60))
                             .padding(20)
                             .padding(.bottom, 30)
                             .opacity(0.8)
@@ -96,14 +98,15 @@ struct MessageFormView: View {
                     }) {
                         Image(systemName: "x.circle")
                             .foregroundColor(.white)
-                            .font(.largeTitle)
+                            .font(.system(size: 60))
                             .padding(20)
                             .padding(.bottom, 30)
                             .opacity(0.8)
                     }
-                }.alert(isPresented: $showingAlert) {
+                }
+                .alert(isPresented: $showingAlert) {
                     () -> Alert in
-                    Alert(title: Text("Message can't be blank"), message: Text("Please fill in a message to submit."), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Message can't be blank or default"), message: Text("Please fill in a message to submit."), dismissButton: .default(Text("OK")))
                 }
             }
         }

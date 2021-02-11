@@ -14,9 +14,9 @@ struct HomeNavOverlay: View {
             Button(action: {
                 ViewRouter.shared.currentPage = .page5
             }) {
-                Image(systemName: "pencil.circle")
+                Image(systemName: "plus.circle")
                     .foregroundColor(.white)
-                    .font(.largeTitle)
+                    .font(.system(size: 60))
                     .padding(20)
                     .padding(.bottom, 30)
                     .opacity(0.8)
@@ -24,9 +24,9 @@ struct HomeNavOverlay: View {
             Button(action: {
                 ViewRouter.shared.currentPage = .page2
             }) {
-                Image(systemName: "mappin.circle")
+                Image(systemName: "location.circle")
                     .foregroundColor(.white)
-                    .font(.largeTitle)
+                    .font(.system(size: 60))
                     .padding(20)
                     .padding(.bottom, 30)
                     .opacity(0.8)
@@ -36,7 +36,7 @@ struct HomeNavOverlay: View {
             }) {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(.white)
-                    .font(.largeTitle)
+                    .font(.system(size: 60))
                     .padding(20)
                     .padding(.bottom, 30)
                     .opacity(0.8)

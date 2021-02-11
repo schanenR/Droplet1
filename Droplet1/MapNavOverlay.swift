@@ -13,21 +13,11 @@ struct MapNavOverlay: View {
     var body: some View {
         HStack {
             Button(action: {
-                ViewRouter.shared.currentPage = .page3
+                ViewRouter.shared.currentPage = .page5
             }) {
-                Image(systemName: "drop")
+                Image(systemName: "plus.circle")
                     .foregroundColor(.green)
-                    .font(.largeTitle)
-                    .padding(20)
-                    .padding(.bottom, 30)
-                    .opacity(0.8)
-            }
-            Button(action: {
-                ViewRouter.shared.currentPage = .page4
-            }) {
-                Image(systemName: "square.and.pencil")
-                    .foregroundColor(.green)
-                    .font(.largeTitle)
+                    .font(.system(size: 60))
                     .padding(20)
                     .padding(.bottom, 30)
                     .opacity(0.8)
@@ -37,7 +27,7 @@ struct MapNavOverlay: View {
             }) {
                 Image(systemName: "house")
                     .foregroundColor(.green)
-                    .font(.largeTitle)
+                    .font(.system(size: 60))
                     .padding(20)
                     .padding(.bottom, 30)
                     .opacity(0.8)
