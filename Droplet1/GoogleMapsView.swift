@@ -21,8 +21,7 @@ struct GoogleMapsView: UIViewRepresentable {
     @ObservedObject var dropletModel = GetDropletData()
     
     
-    private let zoom: Float = 15.5
-//    var dropletArray: [Droplet] = testData
+    private let zoom: Float = 17
     var newDelegate: Delegate?
     
 
@@ -58,24 +57,19 @@ struct GoogleMapsView: UIViewRepresentable {
             
             let markerLocation = CLLocation(latitude: data.latitude, longitude: data.longitude)
 
-            if currentPosition.distance(from: markerLocation) > 50 {
+            if currentPosition.distance(from: markerLocation) > 7 {
                 
-//                print("location: \(location)")
-//                print("distance from marker: \(currentPosition.distance(from: markerLocation))")
+                let distFeet = currentPosition.distance(from: markerLocation) * 3.28084
                 
                 let marker = GMSMarker()
+                marker.title = "\(round(distFeet)) feet away"
                 marker.position = location
                 marker.map = mapView
             
             } else {
-
-//                print("location: \(location)")
-//                print("distance from marker: \(currentPosition.distance(from: markerLocation))")
-                
                 let marker = GMSMarker()
                 marker.position = location
                 marker.userData = data.note
-//                marker.icon = GMSMarker.markerImage(with: .green)
                 marker.icon = UIImage(named: "pngdropletsmall")
                 marker.map = mapView
             }
@@ -88,25 +82,25 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     class Delegate: NSObject, GMSMapViewDelegate {
-        
+
         let myView: GoogleMapsView
-        
+
         init(view: GoogleMapsView) {
             myView = view
         }
 
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-            
+
             userMessage.message = marker.userData as? String
             print("Did tap marker")
-            
+
             if userMessage.message != nil {
                 print("There is a message")
                 ViewRouter.shared.currentPage = .page3
             } else  {
                 print("You are too far from the droplet!")
+                mapView.selectedMarker = marker
             }
-            
             return true
         }
     }

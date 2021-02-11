@@ -16,6 +16,7 @@ struct MessageFormView: View {
 
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject var note = TextEditorManager()
+    @State private var showingAlert = false
 
     init() {
             UITextView.appearance().backgroundColor = .clear
@@ -60,22 +61,26 @@ struct MessageFormView: View {
                     })
                 HStack {
                     Button(action: {
-                        let dropletData = [
-                            "note": self.note,
-                            "latitude": locationManager.latitude,
-                            "longitude": locationManager.longitude
-                        ] as [String : Any]
-                        
-                        let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")
-                        
-                        print("Setting data")
-                        docRef.setData(dropletData) { (error) in
-                            if let error = error {
-                                
-                            } else {
-                                print("data uploaded successfully")
-                                note.text = ""
-                                ViewRouter.shared.currentPage = .page2
+                        if note.text == "" {
+                            showingAlert = true
+                        } else {
+                            let dropletData = [
+                                "note": note.text,
+                                "latitude": locationManager.latitude,
+                                "longitude": locationManager.longitude
+                            ] as [String : Any]
+                            
+                            let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")
+                            
+                            print("Setting data")
+                            docRef.setData(dropletData) { (error) in
+                                if let error = error {
+                                    
+                                } else {
+                                    print("data uploaded successfully")
+                                    note.text = ""
+                                    ViewRouter.shared.currentPage = .page2
+                                }
                             }
                         }
                     }) {
@@ -96,6 +101,9 @@ struct MessageFormView: View {
                             .padding(.bottom, 30)
                             .opacity(0.8)
                     }
+                }.alert(isPresented: $showingAlert) {
+                    () -> Alert in
+                    Alert(title: Text("Message can't be blank"), message: Text("Please fill in a message to submit."), dismissButton: .default(Text("OK")))
                 }
             }
         }
