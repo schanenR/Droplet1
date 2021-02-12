@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Image("droplet2")
+        Image("dropletupdate")
             .resizable()
             .scaledToFill()
             .edgesIgnoringSafeArea(.top)

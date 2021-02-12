@@ -19,6 +19,7 @@ struct ContentView : View {
                 VStack {
                     HomeView()
                         .overlay(HomeNavOverlay(), alignment: .bottom)
+                        .overlay(LoginNavOverlay(), alignment: .top)
                 }
             case .page2:
                 HStack {

@@ -29,6 +29,7 @@
 		60A4272225D60A90008B06A2 /* ExitNavOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4272125D60A90008B06A2 /* ExitNavOverlay.swift */; };
 		60A4272625D60C2B008B06A2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4272525D60C2B008B06A2 /* AboutView.swift */; };
 		60A4272A25D60E14008B06A2 /* AboutOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4272925D60E14008B06A2 /* AboutOverlay.swift */; };
+		60A4273025D6396E008B06A2 /* LoginNavOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4272F25D6396D008B06A2 /* LoginNavOverlay.swift */; };
 		60F7343425CDFFAF00C19F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343325CDFFAF00C19F75 /* Message.swift */; };
 		60F7343825CE076C00C19F75 /* MessageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343725CE076C00C19F75 /* MessageFormView.swift */; };
 		60F7345B25CF363A00C19F75 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7345A25CF363A00C19F75 /* MessageView.swift */; };
@@ -63,6 +64,7 @@
 		60A4272125D60A90008B06A2 /* ExitNavOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitNavOverlay.swift; sourceTree = "<group>"; };
 		60A4272525D60C2B008B06A2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		60A4272925D60E14008B06A2 /* AboutOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutOverlay.swift; sourceTree = "<group>"; };
+		60A4272F25D6396D008B06A2 /* LoginNavOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavOverlay.swift; sourceTree = "<group>"; };
 		60F7343325CDFFAF00C19F75 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		60F7343725CE076C00C19F75 /* MessageFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFormView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		60F7345A25CF363A00C19F75 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				60513F5025CCAF7200EC50ED /* ARViewContainer.swift */,
 				60F7345A25CF363A00C19F75 /* MessageView.swift */,
 				609A15E225CCE59F00943FBE /* MapNavOverlay.swift */,
+				60A4272F25D6396D008B06A2 /* LoginNavOverlay.swift */,
 				609A160425CD1F4400943FBE /* HomeNavOverlay.swift */,
 				60A4272125D60A90008B06A2 /* ExitNavOverlay.swift */,
 				60A4272925D60E14008B06A2 /* AboutOverlay.swift */,
@@ -313,6 +316,7 @@
 				60F7343825CE076C00C19F75 /* MessageFormView.swift in Sources */,
 				60A4270625D5C6EF008B06A2 /* UserData.swift in Sources */,
 				609A15D525CCE1DF00943FBE /* GoogleMapsView.swift in Sources */,
+				60A4273025D6396E008B06A2 /* LoginNavOverlay.swift in Sources */,
 				6099FE7E25CB8150008F8667 /* ContentView.swift in Sources */,
 				609A15DC25CCE2EC00943FBE /* Droplet.swift in Sources */,
 				6099FE7C25CB8150008F8667 /* AppDelegate.swift in Sources */,
