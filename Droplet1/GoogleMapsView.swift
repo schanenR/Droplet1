@@ -56,8 +56,8 @@ struct GoogleMapsView: UIViewRepresentable {
             let currentPosition = CLLocation(latitude: locationManager.latitude , longitude: locationManager.longitude)
             
             let markerLocation = CLLocation(latitude: data.latitude, longitude: data.longitude)
-
-            if currentPosition.distance(from: markerLocation) > 7 {
+// set distance to 7 meters
+            if currentPosition.distance(from: markerLocation) > 20 {
                 
                 let distFeet = currentPosition.distance(from: markerLocation) * 3.28084
                 
@@ -67,9 +67,15 @@ struct GoogleMapsView: UIViewRepresentable {
                 marker.map = mapView
             
             } else {
+       
+                let userData = UserData(
+                    note: data.note,
+                    date: data.date
+                )
+         
                 let marker = GMSMarker()
                 marker.position = location
-                marker.userData = data.note
+                marker.userData = userData
                 marker.icon = UIImage(named: "pngdropletsmall")
                 marker.map = mapView
             }
@@ -90,8 +96,18 @@ struct GoogleMapsView: UIViewRepresentable {
         }
 
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+            
+//            print("DEBUG: \(marker.userData)")
+//            print("DEBUG: \(type(of:marker.userData))")
+            
+//            let markerData = marker.userData as? [String:Any]
+            
+//            print("DEBUG: note? \(markerData)")
+            
+            userMessage.message = (marker.userData as! UserData).note
+            userMessage.date = (marker.userData as! UserData).date
 
-            userMessage.message = marker.userData as? String
+            
             print("Did tap marker")
 
             if userMessage.message != nil {

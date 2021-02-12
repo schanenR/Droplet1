@@ -18,7 +18,7 @@ struct MessageFormView: View {
     @ObservedObject var note = TextEditorManager()
     @State private var showingAlert = false
     @State private var defaultAlert = false
-
+  
     init() {
             UITextView.appearance().backgroundColor = .clear
         }
@@ -65,11 +65,16 @@ struct MessageFormView: View {
                         if note.text == "" || note.text == "Type message here..." {
                             showingAlert = true
                         } else {
+                            
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "MMM dd, YYYY  hh:mm a"
+                            let dateTime = Date()
+                            
                             let dropletData = [
                                 "note": note.text,
                                 "latitude": locationManager.latitude,
                                 "longitude": locationManager.longitude,
-                                "date": Date()
+                                "date": dateFormatter.string(from: dateTime)
                             ] as [String : Any]
                             
                             let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")

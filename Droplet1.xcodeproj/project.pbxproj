@@ -25,9 +25,9 @@
 		609A15FB25CD13FF00943FBE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A15FA25CD13FF00943FBE /* Helper.swift */; };
 		609A160125CD1B3800943FBE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A160025CD1B3800943FBE /* HomeView.swift */; };
 		609A160525CD1F4400943FBE /* HomeNavOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609A160425CD1F4400943FBE /* HomeNavOverlay.swift */; };
+		60A4270625D5C6EF008B06A2 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4270525D5C6EF008B06A2 /* UserData.swift */; };
 		60F7343425CDFFAF00C19F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343325CDFFAF00C19F75 /* Message.swift */; };
 		60F7343825CE076C00C19F75 /* MessageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343725CE076C00C19F75 /* MessageFormView.swift */; };
-		60F7343F25CE390500C19F75 /* RouterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7343E25CE390400C19F75 /* RouterHelper.swift */; };
 		60F7345B25CF363A00C19F75 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7345A25CF363A00C19F75 /* MessageView.swift */; };
 		60F7346A25D0989B00C19F75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60F7346925D0989B00C19F75 /* GoogleService-Info.plist */; };
 		60F7349025D09FE400C19F75 /* GetDropletData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7348F25D09FE400C19F75 /* GetDropletData.swift */; };
@@ -56,9 +56,9 @@
 		609A15FA25CD13FF00943FBE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		609A160025CD1B3800943FBE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		609A160425CD1F4400943FBE /* HomeNavOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavOverlay.swift; sourceTree = "<group>"; };
+		60A4270525D5C6EF008B06A2 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		60F7343325CDFFAF00C19F75 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		60F7343725CE076C00C19F75 /* MessageFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFormView.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		60F7343E25CE390400C19F75 /* RouterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterHelper.swift; sourceTree = "<group>"; };
 		60F7345A25CF363A00C19F75 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		60F7346925D0989B00C19F75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60F7348F25D09FE400C19F75 /* GetDropletData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDropletData.swift; sourceTree = "<group>"; };
@@ -120,10 +120,10 @@
 				609A15E225CCE59F00943FBE /* MapNavOverlay.swift */,
 				609A160425CD1F4400943FBE /* HomeNavOverlay.swift */,
 				60F7348F25D09FE400C19F75 /* GetDropletData.swift */,
-				60F7343E25CE390400C19F75 /* RouterHelper.swift */,
 				609A15E625CD075000943FBE /* ViewRouter.swift */,
 				609A15D725CCE26F00943FBE /* LocationManager.swift */,
 				609A15DB25CCE2EC00943FBE /* Droplet.swift */,
+				60A4270525D5C6EF008B06A2 /* UserData.swift */,
 				60F7343325CDFFAF00C19F75 /* Message.swift */,
 				609A15FA25CD13FF00943FBE /* Helper.swift */,
 				609A15DE25CCE3ED00943FBE /* Model */,
@@ -300,8 +300,8 @@
 				609A160125CD1B3800943FBE /* HomeView.swift in Sources */,
 				609A160525CD1F4400943FBE /* HomeNavOverlay.swift in Sources */,
 				60F7343825CE076C00C19F75 /* MessageFormView.swift in Sources */,
+				60A4270625D5C6EF008B06A2 /* UserData.swift in Sources */,
 				609A15D525CCE1DF00943FBE /* GoogleMapsView.swift in Sources */,
-				60F7343F25CE390500C19F75 /* RouterHelper.swift in Sources */,
 				6099FE7E25CB8150008F8667 /* ContentView.swift in Sources */,
 				609A15DC25CCE2EC00943FBE /* Droplet.swift in Sources */,
 				6099FE7C25CB8150008F8667 /* AppDelegate.swift in Sources */,

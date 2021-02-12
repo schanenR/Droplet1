@@ -29,8 +29,9 @@ class GetDropletData: ObservableObject {
                 let note = data["note"] as? String ?? ""
                 let latitude = data["latitude"] as? Double ?? 0
                 let longitude = data["longitude"] as? Double ?? 0
+                let date = data["date"] as? String ?? ""
 
-                return Droplet(id: id, note: note, latitude: latitude, longitude: longitude)
+                return Droplet(id: id, note: note, latitude: latitude, longitude: longitude, date: date)
 
             }
         }

@@ -10,6 +10,8 @@ import SwiftUI
 
 
 struct MessageView: View {
+    
+    let dateFormatter = DateFormatter()
         
     var body: some View {
         ZStack {
@@ -22,15 +24,11 @@ struct MessageView: View {
                     .frame(width: 325)
                     .foregroundColor(Color.white)
                     .font(.largeTitle)
-                Text(Date(), style: .date)
-                    .foregroundColor(Color.white)
-                    .italic()
-                Text(Date(), style: .time)
+                Text(GoogleMapsView.userMessage.date!)
                     .foregroundColor(Color.white)
                     .italic()
             }
         }
-        
     }
 }
 
