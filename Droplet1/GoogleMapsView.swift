@@ -12,16 +12,13 @@ import CoreLocation
 
 
 struct GoogleMapsView: UIViewRepresentable {
-    //    @ObservedObject static var viewHelper: RouterHelper = RouterHelper()
 
-
-    
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject static var userMessage: Message = Message()
     @ObservedObject var dropletModel = GetDropletData()
     
     
-    private let zoom: Float = 18
+    private let zoom: Float = 18.5
     var newDelegate: Delegate?
     
 
@@ -56,8 +53,8 @@ struct GoogleMapsView: UIViewRepresentable {
             let currentPosition = CLLocation(latitude: locationManager.latitude , longitude: locationManager.longitude)
             
             let markerLocation = CLLocation(latitude: data.latitude, longitude: data.longitude)
-// set distance to 7 meters
-            if currentPosition.distance(from: markerLocation) > 20 {
+// set distance to 20 meters for testing
+            if currentPosition.distance(from: markerLocation) > 7 {
                 
                 let distFeet = currentPosition.distance(from: markerLocation) * 3.28084
                 
