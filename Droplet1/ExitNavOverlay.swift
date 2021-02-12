@@ -11,6 +11,7 @@ struct ExitNavOverlay: View {
     var body: some View {
         HStack {
             Button(action: {
+                GoogleMapsView.userMessage.message = nil
                 ViewRouter.shared.currentPage = .page2
             }) {
                 Image(systemName: "x.circle")
