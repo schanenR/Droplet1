@@ -2,14 +2,19 @@
 //  AboutView.swift
 //  Droplet1
 //
-//  Created by Ada on 2/8/21.
+//  Created by Ada on 2/11/21.
 //
 
 import SwiftUI
 
 struct AboutView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image("droplet-notext")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

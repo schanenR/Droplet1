@@ -21,7 +21,7 @@ struct GoogleMapsView: UIViewRepresentable {
     @ObservedObject var dropletModel = GetDropletData()
     
     
-    private let zoom: Float = 17
+    private let zoom: Float = 18
     var newDelegate: Delegate?
     
 

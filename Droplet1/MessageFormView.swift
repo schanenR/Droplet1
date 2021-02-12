@@ -99,7 +99,7 @@ struct MessageFormView: View {
                             .opacity(0.8)
                     }
                     Button(action: {
-                        ViewRouter.shared.currentPage = .page1
+                        ViewRouter.shared.currentPage = .page2
                     }) {
                         Image(systemName: "x.circle")
                             .foregroundColor(.white)

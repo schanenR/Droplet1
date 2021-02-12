@@ -32,7 +32,7 @@ struct HomeNavOverlay: View {
                     .opacity(0.8)
             }
             Button(action: {
-                ViewRouter.shared.currentPage = .page1
+                ViewRouter.shared.currentPage = .page6
             }) {
                 Image(systemName: "questionmark.circle")
                     .foregroundColor(.white)

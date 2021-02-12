@@ -16,8 +16,10 @@ struct ContentView : View {
         var body: some View {
             switch viewRouter.currentPage {
             case .page1:
-                HomeView()
-                    .overlay(HomeNavOverlay(), alignment: .bottom)
+                VStack {
+                    HomeView()
+                        .overlay(HomeNavOverlay(), alignment: .bottom)
+                }
             case .page2:
                 HStack {
                     GoogleMapsView()
@@ -35,9 +37,13 @@ struct ContentView : View {
                     .transition(.scale)
             case .page4:
                 MessageView()
+                    .overlay(ExitNavOverlay(), alignment: .bottom)
             case .page5:
                 MessageFormView()
                     .ignoresSafeArea(.keyboard)
+            case .page6:
+                AboutView()
+                    .overlay(AboutOverlay(), alignment: .bottom)
             }
            
         }
