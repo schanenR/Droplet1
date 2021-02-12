@@ -10,7 +10,7 @@ import SwiftUI
 struct AboutView: View {
     var body: some View {
         ZStack {
-            Image("droplet-notext")
+            Image("dropletupdateblank")
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)

@@ -93,19 +93,12 @@ struct GoogleMapsView: UIViewRepresentable {
         }
 
         func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-            
-//            print("DEBUG: \(marker.userData)")
-//            print("DEBUG: \(type(of:marker.userData))")
-            
-//            let markerData = marker.userData as? [String:Any]
-            
-//            print("DEBUG: note? \(markerData)")
+
             if (marker.userData != nil) {
                 userMessage.message = (marker.userData as! UserData).note
                 userMessage.date = (marker.userData as! UserData).date
             }
 
-            
             print("Did tap marker")
 
             if userMessage.message != nil {
