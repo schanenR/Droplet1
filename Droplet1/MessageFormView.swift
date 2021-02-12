@@ -82,7 +82,7 @@ struct MessageFormView: View {
                             print("Setting data")
                             docRef.setData(dropletData) { (error) in
                                 if let error = error {
-                                    
+                                    print(error)
                                 } else {
                                     print("data uploaded successfully")
                                     note.text = ""

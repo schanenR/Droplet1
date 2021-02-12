@@ -41,7 +41,7 @@ struct ContentView : View {
                     .overlay(ExitNavOverlay(), alignment: .bottom)
             case .page5:
                 MessageFormView()
-                    .ignoresSafeArea(.keyboard)
+//                    .ignoresSafeArea(.keyboard)
             case .page6:
                 AboutView()
                     .overlay(AboutOverlay(), alignment: .bottom)
