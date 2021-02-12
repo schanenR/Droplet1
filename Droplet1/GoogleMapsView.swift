@@ -100,15 +100,18 @@ struct GoogleMapsView: UIViewRepresentable {
 //            let markerData = marker.userData as? [String:Any]
             
 //            print("DEBUG: note? \(markerData)")
-            
-            userMessage.message = (marker.userData as! UserData).note
-            userMessage.date = (marker.userData as! UserData).date
+            if (marker.userData != nil) {
+                userMessage.message = (marker.userData as! UserData).note
+                userMessage.date = (marker.userData as! UserData).date
+            }
 
             
             print("Did tap marker")
 
             if userMessage.message != nil {
                 print("There is a message")
+                userMessage.message = (marker.userData as! UserData).note
+                userMessage.date = (marker.userData as! UserData).date
                 ViewRouter.shared.currentPage = .page3
             } else  {
                 print("You are too far from the droplet!")
