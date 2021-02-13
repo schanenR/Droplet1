@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  LoginView.swift
 //  Droplet1
 //
 //  Created by Ada on 2/12/21.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct SignUpView: View {
+struct LoginView: View {
     
     @EnvironmentObject var  session: SessionStore
     @State var password: String = ""
     @State var email: String = ""
     @State var error: String = ""
     
-    func signUp() {
-        session.signUp(email: email, password: password) { (result, error) in
+    func signIn() {
+        session.signIn(email: email, password: password) { (result, error) in
             if let error = error {
                 self.error = error.localizedDescription
             } else {
@@ -50,8 +50,8 @@ struct SignUpView: View {
                     .padding(.bottom, 20)
                     .keyboardType(.default)
                     .disableAutocorrection(true)
-                Button(action: signUp) {
-                    Text("SIGN UP")
+                Button(action: signIn) {
+                    Text("SIGN IN")
                         .foregroundColor(.orange)
                         .font(.system(size: 20, weight: .heavy))
                         .padding(20)
@@ -72,8 +72,8 @@ struct SignUpView: View {
     }
 }
 
-struct SignUpView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView().environmentObject(SessionStore())
+        LoginView().environmentObject(SessionStore())
     }
 }

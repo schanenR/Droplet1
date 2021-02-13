@@ -10,8 +10,10 @@ import Firebase
 import Combine
 
 class SessionStore: ObservableObject {
-    var didChange = PassthroughSubject<SessionStore, Never>()
+    
     @Published var session: User? {didSet {self.didChange.send(self) }}
+    
+    var didChange = PassthroughSubject<SessionStore, Never>()
     var handle: AuthStateDidChangeListenerHandle?
     
     func listen() {

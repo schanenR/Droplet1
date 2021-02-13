@@ -8,30 +8,53 @@
 import SwiftUI
 
 struct LoginNavOverlay: View {
+    
+    @EnvironmentObject var  session: SessionStore
+    
+    func signOut() {
+        session.signOut()
+    }
 
     var body: some View {
-        HStack {
-            Button(action: {
-                ViewRouter.shared.currentPage = .page1
-            }) {
-                Text("LOGIN")
+        
+        if session.session != nil {
+            HStack {
+                Button(action: signOut) {
+                    Text("LOGOUT")
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .heavy))
+                        .padding(20)
+                        .padding(.top, 20)
+                }
+                Spacer()
+                Text(session.session!.email!)
                     .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .heavy))
+                    .font(.system(size: 20, weight: .medium))
                     .padding(20)
                     .padding(.top, 20)
-                    .opacity(0.8)
             }
-            Spacer()
-            Button(action: {
-                ViewRouter.shared.currentPage = .page7
-            }) {
-                Text("SIGN UP")
-                    .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .heavy))
-                    .padding(20)
-                    .padding(.top, 20)
-                    .opacity(0.8)
-            }
+        } else {
+                HStack {
+                    Button(action: {
+                        ViewRouter.shared.currentPage = .page8
+                    }) {
+                        Text("LOGIN")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .heavy))
+                            .padding(20)
+                            .padding(.top, 20)
+                    }
+                    Spacer()
+                    Button(action: {
+                        ViewRouter.shared.currentPage = .page7
+                    }) {
+                        Text("SIGN UP")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .heavy))
+                            .padding(20)
+                            .padding(.top, 20)
+                    }
+                }
         }
     }
 }

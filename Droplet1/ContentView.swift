@@ -38,7 +38,6 @@ struct ContentView : View {
                            alignment: .topLeading)
                     .overlay(MapNavOverlay(), alignment: .bottom)
                     .edgesIgnoringSafeArea(.all)
-                    .onAppear(perform: getUser)
             }
         case .page3:
             ARViewContainer()
@@ -59,6 +58,11 @@ struct ContentView : View {
         case .page7:
             SignUpView()
                 .onAppear(perform: getUser)
+                .overlay(AboutOverlay(), alignment: .bottom)
+        case .page8:
+            LoginView()
+                .onAppear(perform: getUser)
+                .overlay(AboutOverlay(), alignment: .bottom)
         }
        
     }
