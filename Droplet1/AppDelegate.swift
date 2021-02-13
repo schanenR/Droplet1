@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey(MAP_API_KEY)
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView().environmentObject(viewRouter)
+        let contentView = ContentView()
+            .environmentObject(viewRouter)
+            .environmentObject(SessionStore())
         
         FirebaseApp.configure()
 

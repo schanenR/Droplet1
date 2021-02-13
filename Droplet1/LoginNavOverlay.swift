@@ -23,7 +23,7 @@ struct LoginNavOverlay: View {
             }
             Spacer()
             Button(action: {
-                ViewRouter.shared.currentPage = .page1
+                ViewRouter.shared.currentPage = .page7
             }) {
                 Text("SIGN UP")
                     .foregroundColor(.white)

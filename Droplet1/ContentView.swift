@@ -11,49 +11,63 @@ import ARKit
 
 struct ContentView : View {
 
-        @EnvironmentObject var viewRouter: ViewRouter
-        
-        var body: some View {
-            switch viewRouter.currentPage {
-            case .page1:
-                VStack {
-                    HomeView()
-                        .overlay(HomeNavOverlay(), alignment: .bottom)
-                        .overlay(LoginNavOverlay(), alignment: .top)
-                }
-            case .page2:
-                HStack {
-                    GoogleMapsView()
-                        .edgesIgnoringSafeArea(.top)
-                        .frame(minWidth: 0,
-                               maxWidth: .infinity,
-                               minHeight: 0,
-                               maxHeight: .infinity,
-                               alignment: .topLeading)
-                        .overlay(MapNavOverlay(), alignment: .bottom)
-                        .edgesIgnoringSafeArea(.all)
-                }
-            case .page3:
-                ARViewContainer().edgesIgnoringSafeArea(.all)
-                    .transition(.scale)
-            case .page4:
-                MessageView()
-                    .overlay(ExitNavOverlay(), alignment: .bottom)
-            case .page5:
-                MessageFormView()
-//                    .ignoresSafeArea(.keyboard)
-            case .page6:
-                AboutView()
-                    .overlay(AboutOverlay(), alignment: .bottom)
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var session: SessionStore
+    
+    func getUser() {
+        session.listen()
+    }
+    
+    var body: some View {
+        switch viewRouter.currentPage {
+        case .page1:
+            VStack {
+                HomeView()
+                    .overlay(HomeNavOverlay(), alignment: .bottom)
+                    .overlay(LoginNavOverlay(), alignment: .top)
+                    .onAppear(perform: getUser)
             }
-           
+        case .page2:
+            HStack {
+                GoogleMapsView()
+                    .edgesIgnoringSafeArea(.top)
+                    .frame(minWidth: 0,
+                           maxWidth: .infinity,
+                           minHeight: 0,
+                           maxHeight: .infinity,
+                           alignment: .topLeading)
+                    .overlay(MapNavOverlay(), alignment: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                    .onAppear(perform: getUser)
+            }
+        case .page3:
+            ARViewContainer()
+                .edgesIgnoringSafeArea(.all)
+                .transition(.scale)
+                .onAppear(perform: getUser)
+        case .page4:
+            MessageView()
+                .overlay(ExitNavOverlay(), alignment: .bottom)
+                .onAppear(perform: getUser)
+        case .page5:
+            MessageFormView()
+                .onAppear(perform: getUser)
+        case .page6:
+            AboutView()
+                .overlay(AboutOverlay(), alignment: .bottom)
+                .onAppear(perform: getUser)
+        case .page7:
+            SignUpView()
+                .onAppear(perform: getUser)
         }
+       
+    }
 }
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(SessionStore())
     }
 }
 #endif

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @EnvironmentObject var session: SessionStore
+    
     var body: some View {
-        Image("dropletupdate")
+        Image("droplettouchup")
             .resizable()
             .scaledToFill()
             .edgesIgnoringSafeArea(.top)
