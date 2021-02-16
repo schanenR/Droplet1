@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     @StateObject var viewRouter = ViewRouter.shared
+    @StateObject var sessionStore = SessionStore.shared
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
             .environmentObject(viewRouter)
-            .environmentObject(SessionStore())
+            .environmentObject(sessionStore)
         
         FirebaseApp.configure()
 

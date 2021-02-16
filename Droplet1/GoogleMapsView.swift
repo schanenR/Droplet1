@@ -13,7 +13,7 @@ import CoreLocation
 
 struct GoogleMapsView: UIViewRepresentable {
 
-//    @EnvironmentObject var session: SessionStore
+//    @EnvironmentObject var  session: SessionStore
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject static var userMessage: Message = Message()
     @ObservedObject var dropletModel = GetDropletData()
@@ -30,7 +30,7 @@ struct GoogleMapsView: UIViewRepresentable {
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
         dropletModel.fetchDropletData()
-        dropletModel.fetchLotusData(email: "schanen.r@gmail.com")
+        dropletModel.fetchLotusData(email: SessionStore.shared.session?.email! ?? "NO EMAIL")
         newDelegate = Delegate(view: self)
     }
     
@@ -41,7 +41,6 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     func updateMarkers() {
-        
         if locationManager.latitude == 0 && locationManager.longitude == 0 {
             return
         }
@@ -64,11 +63,7 @@ struct GoogleMapsView: UIViewRepresentable {
                 marker.title = "\(round(distFeet)) feet away"
                 marker.position = location
                 marker.map = mapView
-
-
-//            else if the droplet is close and has recipient
-            } else if data.isPrivate == false {
-
+            } else {
                 let userData = UserData(
                     note: data.note,
                     date: data.date,
@@ -79,17 +74,6 @@ struct GoogleMapsView: UIViewRepresentable {
                 marker.position = location
                 marker.userData = userData
                 marker.icon = UIImage(named: "pngdropletsmall")
-                marker.map = mapView
-            } else {
-                let userData = UserData(
-                    note: data.note,
-                    date: data.date,
-                    isPrivate: data.isPrivate
-                )
-                let marker = GMSMarker()
-                marker.position = location
-                marker.userData = userData
-                marker.icon = UIImage(named: "smalllotus")
                 marker.map = mapView
             }
         }
@@ -117,7 +101,7 @@ struct GoogleMapsView: UIViewRepresentable {
                 let marker = GMSMarker()
                 marker.position = location
                 marker.userData = userData
-                marker.icon = UIImage(named: "smalllotus")
+                marker.icon = UIImage(named: "pinklotuspng")
                 marker.map = mapView
             }
         }
