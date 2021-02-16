@@ -31,6 +31,7 @@
 		60A4272625D60C2B008B06A2 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4272525D60C2B008B06A2 /* AboutView.swift */; };
 		60A4272A25D60E14008B06A2 /* AboutOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4272925D60E14008B06A2 /* AboutOverlay.swift */; };
 		60A4273025D6396E008B06A2 /* LoginNavOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A4272F25D6396D008B06A2 /* LoginNavOverlay.swift */; };
+		60BDCF7E25DC312F0096ECBD /* PinkLotus.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 60BDCF7D25DC312F0096ECBD /* PinkLotus.rcproject */; };
 		60E3E55B25D731F30047DE78 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3E55A25D731F30047DE78 /* SignUpView.swift */; };
 		60E3E55F25D742600047DE78 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3E55E25D7425F0047DE78 /* SessionStore.swift */; };
 		60E3E56325D79AF60047DE78 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E3E56225D79AF50047DE78 /* LoginView.swift */; };
@@ -71,6 +72,7 @@
 		60A4272525D60C2B008B06A2 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		60A4272925D60E14008B06A2 /* AboutOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutOverlay.swift; sourceTree = "<group>"; };
 		60A4272F25D6396D008B06A2 /* LoginNavOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavOverlay.swift; sourceTree = "<group>"; };
+		60BDCF7D25DC312F0096ECBD /* PinkLotus.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; name = PinkLotus.rcproject; path = ../../../../../Desktop/PinkLotus.rcproject; sourceTree = "<group>"; };
 		60E3E55A25D731F30047DE78 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		60E3E55E25D7425F0047DE78 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		60E3E56225D79AF50047DE78 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				600AC5D925DB801500B8C7CD /* Lotusmodel.rcproject */,
+				60BDCF7D25DC312F0096ECBD /* PinkLotus.rcproject */,
 				609A15F725CD12F500943FBE /* ThreeDDroplet.rcproject */,
 			);
 			path = Model;
@@ -337,6 +340,7 @@
 				60E3E55F25D742600047DE78 /* SessionStore.swift in Sources */,
 				6099FE7E25CB8150008F8667 /* ContentView.swift in Sources */,
 				609A15DC25CCE2EC00943FBE /* Droplet.swift in Sources */,
+				60BDCF7E25DC312F0096ECBD /* PinkLotus.rcproject in Sources */,
 				6099FE7C25CB8150008F8667 /* AppDelegate.swift in Sources */,
 				60F7345B25CF363A00C19F75 /* MessageView.swift in Sources */,
 				609A15F825CD12F500943FBE /* ThreeDDroplet.rcproject in Sources */,

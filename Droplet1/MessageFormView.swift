@@ -11,14 +11,14 @@ import FirebaseFirestore
 
 
 struct MessageFormView: View {
-    
-//    @State private var note = "Type message here..."
 
+    @EnvironmentObject var  session: SessionStore
     @ObservedObject var locationManager = LocationManager()
     @StateObject var note = TextEditorManager()
     @State private var showingAlert = false
     @State private var defaultAlert = false
-  
+    @State var recipient: String = ""
+    
     init() {
             UITextView.appearance().backgroundColor = .clear
         }
@@ -30,46 +30,61 @@ struct MessageFormView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .center) {
-                Text("\(note.text.count)/200")
-                    .font(.footnote)
-                    .padding(.top, 250)
-                    .multilineTextAlignment(.center)
-                TextEditor(text: $note.text)
-                    .onAppear {
-                        let notificationCenter = NotificationCenter.default
-                        
-                        notificationCenter.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
-                            withAnimation {
-                                print("DEBUG DEBUG - keyboard show")
-                                if note.text == "type message here..." {
-                                    print(note.text)
-                                    note.text = ""
-                                    print(note.text)
-                                }
-                            }
-                        }
-                        notificationCenter.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
-                            withAnimation {
-                                print("DEBUG DEBUG - keyboard away")
-                                if note.text == "" {
-                                    print("DEBUG DEBUG - note is empty")
-                                    note.text = "type message here..."
-                                }
-                            }
+                VStack {
+                    if session.session != nil {
+                        Text("ADD USER EMAIL FOR PRIVATE MESSAGE")
+                        HStack {
+                            Spacer()
+                            Text("To:")
+                            TextField("PUBLIC", text: $recipient).multilineTextAlignment(.leading)
+                                .padding(10)
+                                .frame(maxWidth: 250)
+                                .foregroundColor(.white)
+                                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1))
+                            Spacer()
                         }
                     }
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .frame(width: 320)
-                    .gesture(DragGesture().onEnded { value in
-                        let deltaY = value.location.y - value.startLocation.y
-                        if deltaY > 0 {
-                            UIApplication.shared.endEditing(true)
+                    TextEditor(text: $note.text)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 1))
+                        .onAppear {
+                            let notificationCenter = NotificationCenter.default
+                            
+                            notificationCenter.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
+                                withAnimation {
+                                    print("DEBUG DEBUG - keyboard show")
+                                    if note.text == "type message here..." {
+                                        print(note.text)
+                                        note.text = ""
+                                        print(note.text)
+                                    }
+                                }
+                            }
+                            notificationCenter.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
+                                withAnimation {
+                                    print("DEBUG DEBUG - keyboard away")
+                                    if note.text == "" {
+                                        print("DEBUG DEBUG - note is empty")
+                                        note.text = "type message here..."
+                                    }
+                                }
+                            }
                         }
-                    })
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(width: 320, height: 300)
+                        .gesture(DragGesture().onEnded { value in
+                            let deltaY = value.location.y - value.startLocation.y
+                            if deltaY > 0 {
+                                UIApplication.shared.endEditing(true)
+                            }
+                        })
+                }.padding(.top, 150)
+                Text("\(note.text.count)/200")
+                    .font(.footnote)
+                    .multilineTextAlignment(.center)
                 HStack {
                     Button(action: {
-                        if note.text == "" || note.text == "Type message here..." {
+                        if note.text == "" || note.text == "type message here..." {
                             showingAlert = true
                         } else {
                             

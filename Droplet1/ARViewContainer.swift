@@ -16,10 +16,10 @@ struct ARViewContainer: UIViewRepresentable {
             let arView = ARView(frame: .zero)
             
         if GoogleMapsView.userMessage.isPrivate == true {
-            let dropletAnchor = try! Lotusmodel.loadScene()
+            let dropletAnchor = try! PinkLotus.loadScene()
 
             arView.scene.addAnchor(dropletAnchor)
-            dropletAnchor.actions.lotustap.onAction = handleTapOnEntity(_:)
+            dropletAnchor.actions.lotusTap.onAction = handleTapOnEntity(_:)
         } else {
             let dropletAnchor = try! ThreeDDroplet.loadScene()
             
