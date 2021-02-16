@@ -10,4 +10,5 @@ import SwiftUI
 struct UserData: Hashable {
     var note: String
     var date: String
+    var isPrivate: Bool
 }

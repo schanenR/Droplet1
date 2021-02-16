@@ -11,6 +11,8 @@ import Combine
 
 class SessionStore: ObservableObject {
     
+    static var shared = SessionStore()
+    
     @Published var session: User? {didSet {self.didChange.send(self) }}
     @Published var isAnon: Bool = false
     

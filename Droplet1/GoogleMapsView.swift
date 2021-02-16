@@ -13,6 +13,7 @@ import CoreLocation
 
 struct GoogleMapsView: UIViewRepresentable {
 
+//    @EnvironmentObject var session: SessionStore
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject static var userMessage: Message = Message()
     @ObservedObject var dropletModel = GetDropletData()
@@ -28,8 +29,9 @@ struct GoogleMapsView: UIViewRepresentable {
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.latitude, longitude: locationManager.longitude, zoom: zoom)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
+        dropletModel.fetchDropletData()
+        dropletModel.fetchLotusData(email: "schanen.r@gmail.com")
         newDelegate = Delegate(view: self)
-        dropletModel.fetchData()
     }
     
     func makeUIView(context: Self.Context) -> GMSMapView {
@@ -47,13 +49,56 @@ struct GoogleMapsView: UIViewRepresentable {
         mapView.clear()
 
         for data in dropletModel.droplets {
+
+            let location = CLLocationCoordinate2D(latitude: data.latitude, longitude: data.longitude)
+            let currentPosition = CLLocation(latitude: locationManager.latitude , longitude: locationManager.longitude)
+            let markerLocation = CLLocation(latitude: data.latitude, longitude: data.longitude)
+
+//            let hasClassMemberRecipitent = data.responds(to: #recipient())
+
+            if currentPosition.distance(from: markerLocation) > 7 {
+
+                let distFeet = currentPosition.distance(from: markerLocation) * 3.28084
+
+                let marker = GMSMarker()
+                marker.title = "\(round(distFeet)) feet away"
+                marker.position = location
+                marker.map = mapView
+
+
+//            else if the droplet is close and has recipient
+            } else if data.isPrivate == false {
+
+                let userData = UserData(
+                    note: data.note,
+                    date: data.date,
+                    isPrivate: data.isPrivate
+                )
+
+                let marker = GMSMarker()
+                marker.position = location
+                marker.userData = userData
+                marker.icon = UIImage(named: "pngdropletsmall")
+                marker.map = mapView
+            } else {
+                let userData = UserData(
+                    note: data.note,
+                    date: data.date,
+                    isPrivate: data.isPrivate
+                )
+                let marker = GMSMarker()
+                marker.position = location
+                marker.userData = userData
+                marker.icon = UIImage(named: "smalllotus")
+                marker.map = mapView
+            }
+        }
+        for data in dropletModel.allLotus {
             
             let location = CLLocationCoordinate2D(latitude: data.latitude, longitude: data.longitude)
-
             let currentPosition = CLLocation(latitude: locationManager.latitude , longitude: locationManager.longitude)
-            
             let markerLocation = CLLocation(latitude: data.latitude, longitude: data.longitude)
-// set distance to 20 meters for testing
+            
             if currentPosition.distance(from: markerLocation) > 7 {
                 
                 let distFeet = currentPosition.distance(from: markerLocation) * 3.28084
@@ -64,16 +109,15 @@ struct GoogleMapsView: UIViewRepresentable {
                 marker.map = mapView
             
             } else {
-       
                 let userData = UserData(
                     note: data.note,
-                    date: data.date
+                    date: data.date,
+                    isPrivate: data.isPrivate
                 )
-         
                 let marker = GMSMarker()
                 marker.position = location
                 marker.userData = userData
-                marker.icon = UIImage(named: "pngdropletsmall")
+                marker.icon = UIImage(named: "smalllotus")
                 marker.map = mapView
             }
         }
@@ -105,6 +149,7 @@ struct GoogleMapsView: UIViewRepresentable {
                 print("There is a message")
                 userMessage.message = (marker.userData as! UserData).note
                 userMessage.date = (marker.userData as! UserData).date
+                userMessage.isPrivate = (marker.userData as! UserData).isPrivate
                 ViewRouter.shared.currentPage = .page3
             } else  {
                 print("You are too far from the droplet!")

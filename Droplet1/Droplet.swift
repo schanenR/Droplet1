@@ -13,4 +13,5 @@ struct Droplet : Identifiable {
     var latitude: Double
     var longitude: Double
     var date: String
+    var isPrivate = false
 }

@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Lotus : Identifiable {
+struct Lotus : Identifiable{
     var id: String
     var note: String
     var latitude: Double
@@ -14,4 +14,5 @@ struct Lotus : Identifiable {
     var date: String
     var senderEmail: String
     var recipientEmail: String
+    var isPrivate = true
 }

@@ -10,4 +10,5 @@ import SwiftUI
 class Message: ObservableObject {
     @Published var message: String?
     @Published var date: String?
+    @Published var isPrivate: Bool?
 }

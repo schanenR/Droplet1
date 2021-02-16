@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @EnvironmentObject var session: SessionStore
-    
+
     var body: some View {
         Image("droplettouchup")
             .resizable()
