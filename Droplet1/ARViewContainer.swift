@@ -13,16 +13,19 @@ struct ARViewContainer: UIViewRepresentable {
 
     func makeUIView(context: Context) -> ARView {
         
-        let arView = ARView(frame: .zero)
-        
-        // Load the "Box" scene from the "Experience" Reality File
-//        let dropletAnchor = try! ThreeDDroplet.loadScene()
-        let dropletAnchor = try! Lotusmodel.loadScene()
+            let arView = ARView(frame: .zero)
+            
+        if GoogleMapsView.userMessage.isPrivate == true {
+            let dropletAnchor = try! Lotusmodel.loadScene()
 
-        // Add the box anchor to the scene
-        arView.scene.addAnchor(dropletAnchor)
-        
-        dropletAnchor.actions.lotustap.onAction = handleTapOnEntity(_:)
+            arView.scene.addAnchor(dropletAnchor)
+            dropletAnchor.actions.lotustap.onAction = handleTapOnEntity(_:)
+        } else {
+            let dropletAnchor = try! ThreeDDroplet.loadScene()
+            
+            arView.scene.addAnchor(dropletAnchor)
+            dropletAnchor.actions.dropletTapped.onAction = handleTapOnEntity(_:)
+        }
 
         print("scene created")
         return arView
