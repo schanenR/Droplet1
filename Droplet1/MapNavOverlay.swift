@@ -16,7 +16,7 @@ struct MapNavOverlay: View {
                 ViewRouter.shared.currentPage = .page5
             }) {
                 Image(systemName: "plus.circle")
-                    .foregroundColor(.green)
+                    .foregroundColor(.orange)
                     .font(.system(size: 60))
                     .padding(20)
                     .padding(.bottom, 30)
@@ -26,7 +26,7 @@ struct MapNavOverlay: View {
                 ViewRouter.shared.currentPage = .page1
             }) {
                 Image(systemName: "house")
-                    .foregroundColor(.green)
+                    .foregroundColor(.orange)
                     .font(.system(size: 60))
                     .padding(20)
                     .padding(.bottom, 30)

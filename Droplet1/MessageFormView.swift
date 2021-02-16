@@ -17,7 +17,10 @@ struct MessageFormView: View {
     @StateObject var note = TextEditorManager()
     @State private var showingAlert = false
     @State private var defaultAlert = false
+    @State private var privateEmail = false
     @State var recipient: String = ""
+    
+    private var db = Firestore.firestore()
     
     init() {
             UITextView.appearance().backgroundColor = .clear
@@ -87,30 +90,72 @@ struct MessageFormView: View {
                         if note.text == "" || note.text == "type message here..." {
                             showingAlert = true
                         } else {
+                            let lowerRecipient = recipient.lowercased()
                             
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "MMM dd, YYYY  hh:mm a"
-                            let dateTime = Date()
-                            
-                            let dropletData = [
-                                "note": note.text,
-                                "latitude": locationManager.latitude,
-                                "longitude": locationManager.longitude,
-                                "date": dateFormatter.string(from: dateTime)
-                            ] as [String : Any]
-                            
-                            let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")
-                            
-                            print("Setting data")
-                            docRef.setData(dropletData) { (error) in
-                                if let error = error {
-                                    
-                                } else {
-                                    print("data uploaded successfully")
-                                    note.text = ""
-                                    ViewRouter.shared.currentPage = .page2
+                            db.collection("emails").whereField("email", isEqualTo: lowerRecipient)
+                                .getDocuments() { (querySnapshot, err) in
+                                    if let err = err {
+                                        print(err)
+                                    } else {
+                                        if querySnapshot!.count > 0 {
+                                            print("DEBUG: \(querySnapshot!.count) emails FOUND")
+                                            let dateFormatter = DateFormatter()
+                                            dateFormatter.dateFormat = "MMM dd, YYYY  hh:mm a"
+                                            let dateTime = Date()
+                                            
+                                            let lotusData = [
+                                                "note": note.text,
+                                                "latitude": locationManager.latitude,
+                                                "longitude": locationManager.longitude,
+                                                "date": dateFormatter.string(from: dateTime),
+                                                "isPrivate": true,
+                                                "recipient": lowerRecipient,
+                                                "sender": session.session!.email!
+                                            ] as [String : Any]
+                                            
+                                            let docRef = Firestore.firestore().document("Lotus/\(UUID().uuidString)")
+                                            
+                                            print("Setting data")
+                                            docRef.setData(lotusData) { (error) in
+                                                if let error = error {
+                                                    print(error)
+                                                } else {
+                                                    print("LOTUS uploaded successfully")
+                                                    note.text = ""
+                                                    ViewRouter.shared.currentPage = .page2
+                                                }
+                                            }
+                                        } else if privateEmail == false && recipient == "" {
+                                            let dateFormatter = DateFormatter()
+                                            dateFormatter.dateFormat = "MMM dd, YYYY  hh:mm a"
+                                            let dateTime = Date()
+                                            
+                                            let dropletData = [
+                                                "note": note.text,
+                                                "latitude": locationManager.latitude,
+                                                "longitude": locationManager.longitude,
+                                                "date": dateFormatter.string(from: dateTime),
+                                                "isPrivate": true
+                                            ] as [String : Any]
+                                            
+                                            let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")
+                                            
+                                            print("Setting data")
+                                            docRef.setData(dropletData) { (error) in
+                                                if let error = error {
+                                                    print(error)
+                                                } else {
+                                                    print("DROPLET uploaded successfully")
+                                                    note.text = ""
+                                                    ViewRouter.shared.currentPage = .page2
+                                                }
+                                            }
+                                        } else {
+                                            showingAlert = true
+                                        }
+                                    }
                                 }
-                            }
+                            
                         }
                     }) {
                         Image(systemName: "checkmark.circle")
@@ -133,7 +178,7 @@ struct MessageFormView: View {
                 }
                 .alert(isPresented: $showingAlert) {
                     () -> Alert in
-                    Alert(title: Text("Message can't be blank or default"), message: Text("Please fill in a message to submit."), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Message can't be blank or default"), message: Text("Please fill in a message to submit. Recipient email must be valid."), dismissButton: .default(Text("OK")))
                 }
             }
         }
