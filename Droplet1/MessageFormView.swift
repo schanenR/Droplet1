@@ -16,6 +16,7 @@ struct MessageFormView: View {
 
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject var note = TextEditorManager()
+    @State private var recipient: String = ""
     @State private var showingAlert = false
     @State private var defaultAlert = false
   
@@ -30,6 +31,7 @@ struct MessageFormView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .center) {
+                
                 Text("\(note.text.count)/200")
                     .font(.footnote)
                     .padding(.top, 250)
@@ -119,7 +121,7 @@ struct MessageFormView: View {
 }
 
 class TextEditorManager: ObservableObject {
-    @Published var text = "Type message here..." {
+    @Published var text = "" {
         didSet {
             if text.count > 200 && oldValue.count <= 200 {
                 text = oldValue

@@ -12,6 +12,7 @@ import Combine
 class SessionStore: ObservableObject {
     
     @Published var session: User? {didSet {self.didChange.send(self) }}
+    @Published var isAnon: Bool = false
     
     var didChange = PassthroughSubject<SessionStore, Never>()
     var handle: AuthStateDidChangeListenerHandle?
@@ -19,15 +20,35 @@ class SessionStore: ObservableObject {
     func listen() {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if let user = user {
+                self.isAnon = false
                 self.session = User(uid: user.uid, email: user.email)
             } else {
                 self.session = nil
+                self.isAnon = true
             }
         })
     }
     
     func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
         Auth.auth().createUser(withEmail: email, password: password, completion: handler)
+        let casedEmail = email.lowercased()
+        
+        let newEmail = [
+            "email": casedEmail
+        ] as [String : Any]
+        
+        let docRef = Firestore.firestore().document("emails/\(UUID().uuidString)")
+        
+        print("Setting data")
+        
+        docRef.setData(newEmail) { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                print("data uploaded successfully")
+            }
+        }
+        
     }
     
     func signIn(email: String, password: String, handler: @escaping AuthDataResultCallback) {
