@@ -15,8 +15,7 @@ struct MessageFormView: View {
 //    @State private var note = "Type message here..."
 
     @ObservedObject var locationManager = LocationManager()
-    @ObservedObject var note = TextEditorManager()
-    @State private var recipient: String = ""
+    @StateObject var note = TextEditorManager()
     @State private var showingAlert = false
     @State private var defaultAlert = false
   
@@ -31,24 +30,30 @@ struct MessageFormView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .center) {
-                
                 Text("\(note.text.count)/200")
                     .font(.footnote)
                     .padding(.top, 250)
                     .multilineTextAlignment(.center)
                 TextEditor(text: $note.text)
                     .onAppear {
-                        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
+                        let notificationCenter = NotificationCenter.default
+                        
+                        notificationCenter.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
                             withAnimation {
-                                if note.text == "Type message here..." {
+                                print("DEBUG DEBUG - keyboard show")
+                                if note.text == "type message here..." {
+                                    print(note.text)
                                     note.text = ""
+                                    print(note.text)
                                 }
                             }
                         }
-                        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
+                        notificationCenter.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
                             withAnimation {
+                                print("DEBUG DEBUG - keyboard away")
                                 if note.text == "" {
-                                    note.text = "Type message here..."
+                                    print("DEBUG DEBUG - note is empty")
+                                    note.text = "type message here..."
                                 }
                             }
                         }
@@ -84,7 +89,7 @@ struct MessageFormView: View {
                             print("Setting data")
                             docRef.setData(dropletData) { (error) in
                                 if let error = error {
-                                    print(error)
+                                    
                                 } else {
                                     print("data uploaded successfully")
                                     note.text = ""
@@ -121,10 +126,15 @@ struct MessageFormView: View {
 }
 
 class TextEditorManager: ObservableObject {
-    @Published var text = "" {
+    
+    var text = "type message here..." {
+        willSet {
+            objectWillChange.send()
+        }
         didSet {
             if text.count > 200 && oldValue.count <= 200 {
                 text = oldValue
+                objectWillChange.send()
             }
         }
     }
