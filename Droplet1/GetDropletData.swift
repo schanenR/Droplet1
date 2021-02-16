@@ -10,9 +10,12 @@ import FirebaseFirestore
 
 class GetDropletData: ObservableObject {
 
+    @EnvironmentObject var  session: SessionStore
     @Published var droplets = [Droplet]()
+    @Published var allLotus = [Lotus]()
 
     private var db = Firestore.firestore()
+    
     
     func fetchData() {
 
@@ -36,13 +39,13 @@ class GetDropletData: ObservableObject {
             }
         }
         
-        db.collection("Lotus").addSnapshotListener { (snap, err) in
+        db.collection("Lotus").whereField("recipient", isEqualTo: session.session!.email!).addSnapshotListener { (snap, err) in
             guard let documents = snap?.documents else {
                 print("No documents")
                 return
             }
             
-            self.allLotus = documents.map { (snap) -> Droplet in
+            self.allLotus = documents.map { (snap) -> Lotus in
                 let data = snap.data()
                 
                 let id = data["id"] as? String ?? ""
@@ -50,9 +53,10 @@ class GetDropletData: ObservableObject {
                 let latitude = data["latitude"] as? Double ?? 0
                 let longitude = data["longitude"] as? Double ?? 0
                 let date = data["date"] as? String ?? ""
-
-                return Droplet(id: id, note: note, latitude: latitude, longitude: longitude, date: date)
-
+                let sender = data["sender"] as? String ?? ""
+                let recipient = data["recipient"] as? String ?? ""
+ 
+                return Lotus(id: id, note: note, latitude: latitude, longitude: longitude, date: date, senderEmail: sender, recipientEmail: recipient)
             }
         }
         
