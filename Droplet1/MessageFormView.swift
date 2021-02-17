@@ -135,7 +135,7 @@ struct MessageFormView: View {
                                                 "latitude": locationManager.latitude,
                                                 "longitude": locationManager.longitude,
                                                 "date": dateFormatter.string(from: dateTime),
-                                                "isPrivate": true
+                                                "isPrivate": false
                                             ] as [String : Any]
                                             
                                             let docRef = Firestore.firestore().document("droplets/\(UUID().uuidString)")
@@ -178,7 +178,7 @@ struct MessageFormView: View {
                 }
                 .alert(isPresented: $showingAlert) {
                     () -> Alert in
-                    Alert(title: Text("Message can't be blank or default"), message: Text("Please fill in a message to submit. Recipient email must be valid."), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Message OR Email Error"), message: Text("Please fill in a message to submit. Recipient email must be valid or blank."), dismissButton: .default(Text("OK")))
                 }
             }
         }
