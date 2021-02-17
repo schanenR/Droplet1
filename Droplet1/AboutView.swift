@@ -35,13 +35,13 @@ struct AboutView: View {
                     .foregroundColor(.white)
                 HStack {
                     Image("pngdropletsmall")
-                    Text("- PUBLIC MESSAGE")
+                    Text("- PUBLIC NOTE")
                         .foregroundColor(.white)
                         .font(.headline)
                 }
                 HStack {
                     Image("pinklotuspng")
-                    Text("- PRIVATE MESSAGE")
+                    Text("- PRIVATE NOTE")
                         .foregroundColor(.white)
                         .font(.headline)
                 }
