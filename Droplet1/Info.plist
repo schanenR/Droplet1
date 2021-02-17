@@ -28,8 +28,24 @@
 	<string>This app is designed to use your location. </string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UILaunchScreenDefinitions</key>
+		<array>
+			<dict>
+				<key>UILaunchScreenIdentifier</key>
+				<string></string>
+				<key>UIImageName</key>
+				<string>dropletupdate</string>
+			</dict>
+		</array>
+		<key>UIImageName</key>
+		<string>dropletupdateblank</string>
+		<key>UIURLToLaunchScreenAssociations</key>
+		<dict/>
+		<key>UIDefaultLaunchScreen</key>
+		<string></string>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
