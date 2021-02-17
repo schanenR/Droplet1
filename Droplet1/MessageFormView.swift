@@ -55,7 +55,7 @@ struct MessageFormView: View {
                             notificationCenter.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
                                 withAnimation {
                                     print("DEBUG DEBUG - keyboard show")
-                                    if note.text == "type message here..." {
+                                    if note.text == "type note here..." {
                                         print(note.text)
                                         note.text = ""
                                         print(note.text)
@@ -67,7 +67,7 @@ struct MessageFormView: View {
                                     print("DEBUG DEBUG - keyboard away")
                                     if note.text == "" {
                                         print("DEBUG DEBUG - note is empty")
-                                        note.text = "type message here..."
+                                        note.text = "type note here..."
                                     }
                                 }
                             }
@@ -87,7 +87,7 @@ struct MessageFormView: View {
                     .multilineTextAlignment(.center)
                 HStack {
                     Button(action: {
-                        if note.text == "" || note.text == "type message here..." {
+                        if note.text == "" || note.text == "type note here..." {
                             showingAlert = true
                         } else {
                             let lowerRecipient = recipient.lowercased()
@@ -187,7 +187,7 @@ struct MessageFormView: View {
 
 class TextEditorManager: ObservableObject {
     
-    var text = "type message here..." {
+    var text = "type note here..." {
         willSet {
             objectWillChange.send()
         }
